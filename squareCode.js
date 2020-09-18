@@ -1,5 +1,20 @@
 const squareCode = function(message) {
-  
+  let result = '';
+  let squareMessage = [];
+  let newMessage = message.split(' ').join('');
+  let root = Math.ceil(Math.sqrt(newMessage.length));
+  for (let i = 0; i < newMessage.length; i += root) {
+    squareMessage.push(newMessage.slice(i, i + root));
+  }
+  for (let i = 0; i < root; i++) {
+    for (let j = 0; j < squareMessage.length; j++) {
+      if (squareMessage[j][i]) {
+        result += squareMessage[j][i];
+      }
+    }
+    result += ' ';
+  }
+  return result;
 };
 
 console.log(squareCode("chill out"));
